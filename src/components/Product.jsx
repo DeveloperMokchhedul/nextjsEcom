@@ -1,20 +1,54 @@
 "use client"
 import { ProductContext } from '@/context/ProductContext'
 import Link from 'next/link';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CiStar } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 
 function Product() {
-    const {products, setPoduct} = useContext(ProductContext)
+    const {products, setProducts, allProduct, setAllProduct} = useContext(ProductContext)
+    const [search, setSearch] = useState(null)
+
+
+    useEffect(()=>{
+        searchData(search)
+    },[search])
+
+
+    const searchData = (search)=>{
+        let filterData = products;
+        if (search) {
+            filterData = products.filter(item=>item.title.toLowerCase().includes(search.toLowerCase()))
+            setProducts(filterData)   
+        }else{
+            setProducts(allProduct)
+
+        }
+    }
+  
+
+
+    
+
     
   return (
 
     <>
     <div className='mt-14'>
+        <div className='bg-slate-200 py-1 px-1 rounded-lg flex items-center mb-5'>
+            <input type="text" 
+            value={search}
+            placeholder='Search item name'
+            onChange={(e)=>setSearch(e.target.value)}
+            className='w-full outline-none rounded-lg px-5 py-1 bg-transparent text-black'
+            />
+            <CiSearch className='text-2xl mr-3' />
+
+        </div>
         <div className='grid grid-cols-12  gap-3 '>
             {
                 products && products.map((current)=>(
-                    <div key={current.id} className='col-span-3 bg-white p-5 shadow-lg rounded-lg border'>
+                    <div key={current.id} className='col-span-12 md:col-span-3 bg-white p-5 shadow-lg rounded-lg border'>
                         <div className='flex justify-end items-center gap-2'>
                             <CiStar className='' />
                             <p>{current.rating.rate}</p>
