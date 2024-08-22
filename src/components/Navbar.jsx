@@ -7,7 +7,7 @@ import { CiShoppingCart } from "react-icons/ci";
 function Navbar() {
     return (
         <>
-            <div className=' py-5'>
+            <div className='mx-[30px] py-5'>
                 <nav className='container mx-auto flex justify-between'>
                     <Link href={"/"}><h1 className='text-2xl'>Logo</h1></Link>
                     <div className='flex gap-14 '>
