@@ -1,11 +1,16 @@
+import Hero from "@/components/Hero"
 
 
 function page() {
   return (
-    <div>
-      <h1>hey this is nextjs project with mokchhedul islam</h1>
-      
-    </div>
+    <>
+      <div className="">
+        <div className="container mx-auto">
+          <Hero />
+        </div>
+      </div>
+
+    </>
   )
 }
 
