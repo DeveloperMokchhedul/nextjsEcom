@@ -6,7 +6,7 @@ import { CiStar } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 
 function Product() {
-    const { products, setProducts, allProduct, setAllProduct } = useContext(ProductContext)
+    const { products, setProducts, allProduct, setAllProduct , addToCart } = useContext(ProductContext)
     const [search, setSearch] = useState(null)
 
 
@@ -25,10 +25,6 @@ function Product() {
 
         }
     }
-
-
-
-
 
 
     return (
@@ -66,9 +62,8 @@ function Product() {
                                     <p>sales({current.rating.count})</p>
                                 </div>
                                 <div className='bg-black text-white py-1 w-full px-3 rounded-lg text-center'>
-                                    <Link href={"/"}>Add to Cart</Link>
+                                    <button  onClick={()=>addToCart(current)}>Add to Cart</button>
                                 </div>
-
                             </div>
                         ))
                     }
