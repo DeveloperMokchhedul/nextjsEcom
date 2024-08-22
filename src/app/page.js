@@ -7,7 +7,7 @@ import Title from "@/components/Title"
 function page() {
   return (
     <>
-      <div className="">
+      <div className="mx-30">
         <div className="container mx-auto">
           <Hero />
           <Title title={"Our Product"}  />
