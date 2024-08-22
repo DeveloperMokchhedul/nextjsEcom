@@ -20,7 +20,6 @@ function Hero() {
         </div>
         <div className='col-span-6'>
             <Image className="flex mx-auto" width="500" height="300" src={"/images/hero.png"}></Image>
-
         </div>
     </div>
       
